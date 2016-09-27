@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Login" id="BYZ-38-t0r" customClass="LoginController" customModule="GoogleSigninIntegration" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Login" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BoU-iD-UOW">
+                                <rect key="frame" x="20" y="44" width="560" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" red="0.87843137250000003" green="0.1960784314" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vbQ-a8-CfG">
+                                <rect key="frame" x="20" y="275" width="560" height="50"/>
+                                <state key="normal" image="gmail"/>
+                                <connections>
+                                    <action selector="googleLoginTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="19a-cA-nsA"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="BoU-iD-UOW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="AuG-5E-TX9"/>
+                            <constraint firstItem="BoU-iD-UOW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="Fef-94-k3u"/>
+                            <constraint firstItem="vbQ-a8-CfG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Gyq-eI-V5V"/>
+                            <constraint firstItem="vbQ-a8-CfG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HtT-6b-Oda"/>
+                            <constraint firstItem="vbQ-a8-CfG" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="IjS-FV-77x"/>
+                            <constraint firstItem="BoU-iD-UOW" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="PV6-i5-2Wh"/>
+                            <constraint firstItem="vbQ-a8-CfG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="tRK-UB-w2Q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="v7S-2Z-o28" kind="show" identifier="Login" id="6Qy-8i-BkR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="61" y="347"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="XQY-G3-db5">
+            <objects>
+                <viewController title="Profile" id="v7S-2Z-o28" customClass="ProfileController" customModule="GoogleSigninIntegration" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0Ef-UR-PoA"/>
+                        <viewControllerLayoutGuide type="bottom" id="y3Z-S0-QP2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7dL-WK-gZp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="s3C-mR-QWy">
+                                <rect key="frame" x="20" y="66" width="560" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="4qd-Ik-teg">
+                                <rect key="frame" x="20" y="100" width="560" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rR6-6h-ppN">
+                                <rect key="frame" x="20" y="134" width="560" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cC5-Ao-JbH">
+                                <rect key="frame" x="276" y="285" width="48" height="30"/>
+                                <color key="backgroundColor" red="0.87843137250000003" green="0.1960784314" blue="0.17254901959999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutTap:" destination="v7S-2Z-o28" eventType="touchUpInside" id="2tn-VC-D7I"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="4qd-Ik-teg" firstAttribute="trailing" secondItem="s3C-mR-QWy" secondAttribute="trailing" id="0yG-AL-JlG"/>
+                            <constraint firstItem="cC5-Ao-JbH" firstAttribute="centerY" secondItem="7dL-WK-gZp" secondAttribute="centerY" id="37j-9I-Rep"/>
+                            <constraint firstItem="s3C-mR-QWy" firstAttribute="leading" secondItem="7dL-WK-gZp" secondAttribute="leadingMargin" id="7wd-o0-Vnv"/>
+                            <constraint firstItem="rR6-6h-ppN" firstAttribute="top" secondItem="4qd-Ik-teg" secondAttribute="bottom" constant="8" id="QUC-ub-2fz"/>
+                            <constraint firstItem="4qd-Ik-teg" firstAttribute="top" secondItem="s3C-mR-QWy" secondAttribute="bottom" constant="8" id="Qnu-0v-Fp9"/>
+                            <constraint firstItem="rR6-6h-ppN" firstAttribute="leading" secondItem="4qd-Ik-teg" secondAttribute="leading" id="eyi-Tq-fD6"/>
+                            <constraint firstItem="rR6-6h-ppN" firstAttribute="trailing" secondItem="4qd-Ik-teg" secondAttribute="trailing" id="onb-9C-ZZE"/>
+                            <constraint firstItem="s3C-mR-QWy" firstAttribute="top" secondItem="0Ef-UR-PoA" secondAttribute="bottom" constant="46" id="peF-Vh-CJH"/>
+                            <constraint firstItem="cC5-Ao-JbH" firstAttribute="centerX" secondItem="7dL-WK-gZp" secondAttribute="centerX" id="uga-sF-Zec"/>
+                            <constraint firstItem="4qd-Ik-teg" firstAttribute="leading" secondItem="s3C-mR-QWy" secondAttribute="leading" id="zAO-ux-PVA"/>
+                            <constraint firstItem="s3C-mR-QWy" firstAttribute="trailing" secondItem="7dL-WK-gZp" secondAttribute="trailingMargin" id="zBi-h4-83X"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblEmail" destination="rR6-6h-ppN" id="YDy-hx-oNS"/>
+                        <outlet property="lblFirstName" destination="s3C-mR-QWy" id="Yfz-EQ-dFu"/>
+                        <outlet property="lblLastName" destination="4qd-Ik-teg" id="NX7-Wh-XW9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hCz-mM-Szx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749" y="347"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gmail" width="560" height="50"/>
+    </resources>
+</document>
