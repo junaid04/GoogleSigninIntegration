@@ -25,10 +25,10 @@ class ProfileController: UIViewController {
         lblEmail.text = google.googleEmail
     }
 
-    @IBAction func logoutTap(sender: AnyObject) {
+    @IBAction func logoutTap(_ sender: AnyObject) {
         
         google.logOut()
-        self.dismissViewControllerAnimated(true) { 
+        self.dismiss(animated: true) { 
             
             SwiftLoading().hideLoading()
         }

@@ -19,14 +19,14 @@ class LoginController: UIViewController {
     }
     
     
-    @IBAction func googleLoginTap(sender: AnyObject) {
+    @IBAction func googleLoginTap(_ sender: AnyObject) {
         
         googleLogin.logIn()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if let destVC: ProfileController = segue.destinationViewController as? ProfileController {
+        if let destVC: ProfileController = segue.destination as? ProfileController {
             
             destVC.google = googleLogin
         }

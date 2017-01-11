@@ -1,9 +1,9 @@
 //
 //  GoogleSignIn.swift
-//  HitchzCustomer
+//  GoogleSigninIntegration
 //
-//  Created by AJK on 6/30/16.
-//  Copyright © 2016 AJKTechnologies. All rights reserved.
+//  Created by AJK on 9/27/16.
+//  Copyright © 2016 ajk. All rights reserved.
 //
 
 import Foundation
@@ -16,7 +16,6 @@ class GoogleLogin: NSObject, GIDSignInUIDelegate,GIDSignInDelegate {
     var googleFirstName = ""
     var googleLastName = ""
     
-    
     override init() {
         super.init()
         
@@ -24,8 +23,7 @@ class GoogleLogin: NSObject, GIDSignInUIDelegate,GIDSignInDelegate {
         GIDSignIn.sharedInstance().delegate = self
     }
     
-    
-    func startViewController(callerVC: UIViewController) {
+    func startViewController(_ callerVC: UIViewController) {
         
         self.viewController = callerVC
     
@@ -44,15 +42,37 @@ class GoogleLogin: NSObject, GIDSignInUIDelegate,GIDSignInDelegate {
         print("GOOGLe LogOUt")
     }
     
-    
     func moveToViewController() {
         
         SwiftLoading().hideLoading()
-        viewController.performSegueWithIdentifier("Login", sender: self)
+        viewController.performSegue(withIdentifier: "Login", sender: self)
     }
     
-    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!, withError error: NSError!) {
-        
+    //MARK : - SignInUI Delegate
+    func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+        SwiftLoading().hideLoading()
+    }
+    
+    // Present a view that prompts the user to sign in with Google
+    func sign(_ signIn: GIDSignIn!,
+                present viewController: UIViewController!) {
+        self.viewController.present(viewController, animated: true) {
+            
+            SwiftLoading().hideLoading()
+        }
+    }
+    
+    // Dismiss the "Sign in with Google" view
+    func sign(_ signIn: GIDSignIn!,
+                dismiss viewController: UIViewController!) {
+        self.viewController.dismiss(animated: true) {
+            SwiftLoading().showLoading()
+        }
+    }
+    
+    // MARK: - GIDSignInDelegate
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        SwiftLoading().hideLoading()
         if (error == nil) {
             // Perform any operations on signed in user here.
             let userId = user.userID                  // For client-side use only!
@@ -61,50 +81,21 @@ class GoogleLogin: NSObject, GIDSignInUIDelegate,GIDSignInDelegate {
             let givenName = user.profile.givenName
             let familyName = user.profile.familyName
             let email = user.profile.email
-            self.googleEmail = email
-            self.googleFirstName = givenName
-            self.googleLastName = familyName
+            self.googleEmail = email!
+            self.googleFirstName = givenName!
+            self.googleLastName = familyName!
             
-            print(userId)
-            print(idToken)
-            print(fullName)
-            print(givenName)
-            print(familyName)
-            print(email)
-
-            self.moveToViewController()
+            print(userId!)
+            print(idToken!)
+            print(fullName!)
+            print(givenName!)
+            print(familyName!)
+            print(email!)
+            
+            //self.moveToViewController()
             
         } else {
             print("\(error.localizedDescription)")
         }
     }
-    
-    
-    //MARK : - SignInUI Delegate
-    func signInWillDispatch(signIn: GIDSignIn!, error: NSError!) {
-        //myActivityIndicator.stopAnimating()
-        SwiftLoading().hideLoading()
-        
-    }
-    
-    // Present a view that prompts the user to sign in with Google
-    func signIn(signIn: GIDSignIn!,
-                presentViewController viewController: UIViewController!) {
-        self.viewController.presentViewController(viewController, animated: true) {
-            
-            SwiftLoading().hideLoading()
-        }
-    }
-    
-    // Dismiss the "Sign in with Google" view
-    func signIn(signIn: GIDSignIn!,
-                dismissViewController viewController: UIViewController!) {
-        self.viewController.dismissViewControllerAnimated(true) {
-            
-            SwiftLoading().showLoading()
-            
-        }
-    }
-    
-    
 }
